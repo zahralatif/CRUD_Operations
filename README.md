@@ -19,4 +19,4 @@ Delete - delete (id)
 In this project we will use [mockapi](https://mockapi.io/) for creating fake API. 
 ###### API consists of base url and endpoint.
 ## REST API
-[REST API](./src/assets/images/rest_api.jpeg)
+![REST API](./src/assets/images/rest_api.jpeg)
