@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios"; //*axios is a promise based HTTP client for the browser and node.js
 import { CiEdit, CiTrash } from "react-icons/ci";
-import toast, { Toaster } from "react-hot-toast"; //*react-hot-toast is a super easy toast library for React
+import toast from "react-hot-toast"; //*react-hot-toast is a super easy toast library for React
 import Spinner from "../Spinner";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,10 @@ function Home() {
       <div className="col-lg-10 mx-auto mt-5">
         <div className="d-flex justify-content-between mb-3 align-items-center">
           <h4>All products ({tasks && tasks.length})</h4>
-          <Link to='/create' className="btn btn-success">Create new product</Link> {/*//*Link is used to navigate to the create page*/}
+          <Link to="/create" className="btn btn-success">
+            Create new product
+          </Link>{" "}
+          {/*//*Link is used to navigate to the create page*/}
         </div>
         <hr />
         <div className="alert alert-danger w-25 m-auto mt-5 text-center">
@@ -55,7 +58,9 @@ function Home() {
     <div className="col-lg-10 mx-auto mt-5">
       <div className="d-flex justify-content-between mb-3 align-items-center">
         <h4>All products ({tasks && tasks.length})</h4>
-        <Link to='/create' className="btn btn-success">Create new product</Link>
+        <Link to="/create" className="btn btn-success">
+          Create new product
+        </Link>
       </div>
       <table className="table table-bordered">
         <thead>
@@ -87,9 +92,9 @@ function Home() {
                   <td>{task.category}</td>
                   <td>{task.price}$</td>
                   <td>
-                    <button className="btn btn-warning me-1">
+                    <Link to={`/edit/${task.id}`} className="btn btn-warning me-1"> {/*//*Link is used to navigate to the edit page*/}
                       <CiEdit />
-                    </button>
+                    </Link>
                     <button
                       onClick={() => deleteHandler(task.id)} //*when we click on delete button, it will call deleteHandler function and pass the task.id as a parameter to it
                       className="btn btn-danger ms-1"
@@ -105,8 +110,6 @@ function Home() {
           )}
         </tbody>
       </table>
-      <Toaster position="top-right" reverseOrder={false} />{" "}
-      {/*//*Toaster is a component that will show the toast messages*/}
     </div>
   );
 }
